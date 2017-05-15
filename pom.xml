@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.vericite</groupId>
-	<artifactId>vc-api-java</artifactId>
+	<artifactId>vericite-lms-api</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
@@ -178,8 +178,8 @@
 
 	<licenses>
 		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<name>Apache License</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 		</license>
 	</licenses>
 	<scm>
