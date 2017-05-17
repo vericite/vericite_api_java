@@ -11,3 +11,8 @@ This is the vericite content review implementation which is for use with those t
 ### Enable plagiarism detection in assignments
 
 - assignment.useContentReview=true
+
+## To Update the SDK
+
+Update pom version
+mvn clean deploy -P release
