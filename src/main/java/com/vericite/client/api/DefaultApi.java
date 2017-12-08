@@ -788,7 +788,7 @@ public class DefaultApi {
         return call;
     }
     /* Build call for reportsUrlsContextIDGet */
-    private com.squareup.okhttp.Call reportsUrlsContextIDGetCall(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String userIDFilter, String externalContentIDFilter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reportsUrlsContextIDGetCall(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String tokenUserFirstName, String tokenUserLastName, String tokenUserEmail, String userIDFilter, String externalContentIDFilter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'contextID' is set
@@ -843,6 +843,12 @@ public class DefaultApi {
         localVarHeaderParams.put("consumer", apiClient.parameterToString(consumer));
         if (consumerSecret != null)
         localVarHeaderParams.put("consumerSecret", apiClient.parameterToString(consumerSecret));
+        if (tokenUserFirstName != null)
+            localVarHeaderParams.put("tokenUserFirstName", apiClient.parameterToString(tokenUserFirstName));
+        if (tokenUserLastName != null)
+            localVarHeaderParams.put("tokenUserLastName", apiClient.parameterToString(tokenUserLastName));
+        if (tokenUserEmail != null)
+            localVarHeaderParams.put("tokenUserEmail", apiClient.parameterToString(tokenUserEmail));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -883,13 +889,16 @@ public class DefaultApi {
      * @param consumerSecret the consumer secret (required)
      * @param tokenUser ID of user who will view the report (required)
      * @param tokenUserRole role of user who will view the report (required)
+     * @param tokenUserFirstName first name of user who will view the report (optional)
+     * @param tokenUserLastName last name of user who will view the report (optional)
+     * @param tokenUserEmail email of user who will view the report (optional)
      * @param userIDFilter ID of user to filter results on (optional)
      * @param externalContentIDFilter external content id to filter results on (optional)
      * @return List&lt;ReportURLLinkReponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ReportURLLinkReponse> reportsUrlsContextIDGet(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String userIDFilter, String externalContentIDFilter) throws ApiException {
-        ApiResponse<List<ReportURLLinkReponse>> resp = reportsUrlsContextIDGetWithHttpInfo(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, userIDFilter, externalContentIDFilter);
+    public List<ReportURLLinkReponse> reportsUrlsContextIDGet(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String tokenUserFirstName, String tokenUserLastName, String tokenUserEmail, String userIDFilter, String externalContentIDFilter) throws ApiException {
+        ApiResponse<List<ReportURLLinkReponse>> resp = reportsUrlsContextIDGetWithHttpInfo(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, tokenUserFirstName, tokenUserLastName, tokenUserEmail, userIDFilter, externalContentIDFilter);
         return resp.getData();
     }
 
@@ -902,13 +911,16 @@ public class DefaultApi {
      * @param consumerSecret the consumer secret (required)
      * @param tokenUser ID of user who will view the report (required)
      * @param tokenUserRole role of user who will view the report (required)
+     * @param tokenUserFirstName first name of user who will view the report (optional)
+     * @param tokenUserLastName last name of user who will view the report (optional)
+     * @param tokenUserEmail email of user who will view the report (optional)
      * @param userIDFilter ID of user to filter results on (optional)
      * @param externalContentIDFilter external content id to filter results on (optional)
      * @return ApiResponse&lt;List&lt;ReportURLLinkReponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ReportURLLinkReponse>> reportsUrlsContextIDGetWithHttpInfo(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String userIDFilter, String externalContentIDFilter) throws ApiException {
-        com.squareup.okhttp.Call call = reportsUrlsContextIDGetCall(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, userIDFilter, externalContentIDFilter, null, null);
+    public ApiResponse<List<ReportURLLinkReponse>> reportsUrlsContextIDGetWithHttpInfo(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String tokenUserFirstName, String tokenUserLastName, String tokenUserEmail, String userIDFilter, String externalContentIDFilter) throws ApiException {
+        com.squareup.okhttp.Call call = reportsUrlsContextIDGetCall(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, tokenUserFirstName, tokenUserLastName, tokenUserEmail, userIDFilter, externalContentIDFilter, null, null);
         Type localVarReturnType = new TypeToken<List<ReportURLLinkReponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -922,13 +934,16 @@ public class DefaultApi {
      * @param consumerSecret the consumer secret (required)
      * @param tokenUser ID of user who will view the report (required)
      * @param tokenUserRole role of user who will view the report (required)
+     * @param tokenUserFirstName first name of user who will view the report (optional)
+     * @param tokenUserLastName last name of user who will view the report (optional)
+     * @param tokenUserEmail email of user who will view the report (optional)
      * @param userIDFilter ID of user to filter results on (optional)
      * @param externalContentIDFilter external content id to filter results on (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reportsUrlsContextIDGetAsync(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String userIDFilter, String externalContentIDFilter, final ApiCallback<List<ReportURLLinkReponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reportsUrlsContextIDGetAsync(String contextID, String assignmentIDFilter, String consumer, String consumerSecret, String tokenUser, String tokenUserRole, String tokenUserFirstName, String tokenUserLastName, String tokenUserEmail, String userIDFilter, String externalContentIDFilter, final ApiCallback<List<ReportURLLinkReponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -949,7 +964,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reportsUrlsContextIDGetCall(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, userIDFilter, externalContentIDFilter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reportsUrlsContextIDGetCall(contextID, assignmentIDFilter, consumer, consumerSecret, tokenUser, tokenUserRole, tokenUserFirstName, tokenUserLastName, tokenUserEmail, userIDFilter, externalContentIDFilter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ReportURLLinkReponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
