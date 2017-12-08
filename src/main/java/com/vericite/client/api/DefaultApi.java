@@ -632,7 +632,7 @@ public class DefaultApi {
         return call;
     }
     /* Build call for reportsSubmitRequestContextIDAssignmentIDUserIDPost */
-    private com.squareup.okhttp.Call reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, ReportMetaData reportMetaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, String productFamilyCode, String productToolCode, ReportMetaData reportMetaData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = reportMetaData;
         
         // verify the required parameter 'contextID' is set
@@ -676,6 +676,12 @@ public class DefaultApi {
 
         //Always use encryption
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "encrypted", true));
+        if(productFamilyCode != null){
+        	localVarQueryParams.addAll(apiClient.parameterToPairs("", "productFamilyCode", productFamilyCode));
+        }
+        if(productToolCode != null){
+        	localVarQueryParams.addAll(apiClient.parameterToPairs("", "productToolCode", productToolCode));
+        }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (consumer != null)
@@ -721,12 +727,14 @@ public class DefaultApi {
      * @param userID ID of user (required)
      * @param consumer the consumer (required)
      * @param consumerSecret the consumer secret (required)
+     * @param productFamilyCode Flag to indicate the requesting system type: sakai, canvas, moodle, brightspace, etc (optional)
+     * @param productToolCode Flag to indicate the requesting tool type: assignment, quiz, forum (optional)
      * @param reportMetaData  (required)
      * @return List&lt;ExternalContentUploadInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ExternalContentUploadInfo> reportsSubmitRequestContextIDAssignmentIDUserIDPost(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, ReportMetaData reportMetaData) throws ApiException {
-        ApiResponse<List<ExternalContentUploadInfo>> resp = reportsSubmitRequestContextIDAssignmentIDUserIDPostWithHttpInfo(contextID, assignmentID, userID, consumer, consumerSecret, reportMetaData);
+    public List<ExternalContentUploadInfo> reportsSubmitRequestContextIDAssignmentIDUserIDPost(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, String productFamilyCode, String productToolCode, ReportMetaData reportMetaData) throws ApiException {
+        ApiResponse<List<ExternalContentUploadInfo>> resp = reportsSubmitRequestContextIDAssignmentIDUserIDPostWithHttpInfo(contextID, assignmentID, userID, consumer, consumerSecret, productFamilyCode, productToolCode, reportMetaData);
         return resp.getData();
     }
 
@@ -738,12 +746,14 @@ public class DefaultApi {
      * @param userID ID of user (required)
      * @param consumer the consumer (required)
      * @param consumerSecret the consumer secret (required)
+     * @param productFamilyCode Flag to indicate the requesting system type: sakai, canvas, moodle, brightspace, etc (optional)
+     * @param productToolCode Flag to indicate the requesting tool type: assignment, quiz, forum (optional)
      * @param reportMetaData  (required)
      * @return ApiResponse&lt;List&lt;ExternalContentUploadInfo&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ExternalContentUploadInfo>> reportsSubmitRequestContextIDAssignmentIDUserIDPostWithHttpInfo(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, ReportMetaData reportMetaData) throws ApiException {
-        com.squareup.okhttp.Call call = reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(contextID, assignmentID, userID, consumer, consumerSecret, reportMetaData, null, null);
+    public ApiResponse<List<ExternalContentUploadInfo>> reportsSubmitRequestContextIDAssignmentIDUserIDPostWithHttpInfo(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, String productFamilyCode, String productToolCode, ReportMetaData reportMetaData) throws ApiException {
+        com.squareup.okhttp.Call call = reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(contextID, assignmentID, userID, consumer, consumerSecret, productFamilyCode, productToolCode, reportMetaData, null, null);
         Type localVarReturnType = new TypeToken<List<ExternalContentUploadInfo>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -756,12 +766,14 @@ public class DefaultApi {
      * @param userID ID of user (required)
      * @param consumer the consumer (required)
      * @param consumerSecret the consumer secret (required)
+     * @param productFamilyCode Flag to indicate the requesting system type: sakai, canvas, moodle, brightspace, etc (optional)
+     * @param productToolCode Flag to indicate the requesting tool type: assignment, quiz, forum (optional)
      * @param reportMetaData  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reportsSubmitRequestContextIDAssignmentIDUserIDPostAsync(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, ReportMetaData reportMetaData, final ApiCallback<List<ExternalContentUploadInfo>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reportsSubmitRequestContextIDAssignmentIDUserIDPostAsync(String contextID, String assignmentID, String userID, String consumer, String consumerSecret, String productFamilyCode, String productToolCode, ReportMetaData reportMetaData, final ApiCallback<List<ExternalContentUploadInfo>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -782,7 +794,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(contextID, assignmentID, userID, consumer, consumerSecret, reportMetaData, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reportsSubmitRequestContextIDAssignmentIDUserIDPostCall(contextID, assignmentID, userID, consumer, consumerSecret, productFamilyCode, productToolCode, reportMetaData, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ExternalContentUploadInfo>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
